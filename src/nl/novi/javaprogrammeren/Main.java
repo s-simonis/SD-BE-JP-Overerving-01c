@@ -1,6 +1,9 @@
 package nl.novi.javaprogrammeren;
 
+import nl.novi.javaprogrammeren.overerving.FalconRocket;
 import nl.novi.javaprogrammeren.overerving.Rocket;
+
+import javax.xml.stream.FactoryConfigurationError;
 
 public class Main {
     /*
@@ -22,8 +25,23 @@ public class Main {
 
     public static void main(String[] args) {
         Rocket genericRocket = new Rocket(100);
+        FalconRocket falconRocket = new FalconRocket(300);
 
-        genericRocket.fly(10);
-        System.out.println(genericRocket.toString());
+//        genericRocket.fly(10);
+//        System.out.println(genericRocket.toString());
+//        System.out.println(genericRocket.hasEnoughFuel(200));
+
+        int neededFuel = 30;
+
+        if (falconRocket.hasEnoughFuel(neededFuel)) {
+            falconRocket.fly(neededFuel);
+            System.out.println(falconRocket.toString());
+        }
+        else {
+            System.out.println("The Falcon rocket needs servicing before it can leave.");
+        }
+
+        System.out.println("Currentfuel: "+falconRocket.currentFuel);
+        System.out.println("Extrafuel: "+falconRocket.extraFuel);
     }
 }
